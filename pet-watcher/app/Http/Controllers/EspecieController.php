@@ -12,9 +12,17 @@ class EspecieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     public function index()
     {
         //
+        $especie = Especie::all();
+        return view('especies.index', compact('especie'));
     }
 
     /**
@@ -25,6 +33,7 @@ class EspecieController extends Controller
     public function create()
     {
         //
+        return view('especies.create');
     }
 
     /**
@@ -36,6 +45,11 @@ class EspecieController extends Controller
     public function store(Request $request)
     {
         //
+        $especie = new Especie();
+        $especie->nome_cientifico = $request->nome_cientifico;
+        $especie->nome_popular = $request->nome_popular;
+        $especie->save();
+        return redirect(to: 'especies');
     }
 
     /**
@@ -44,9 +58,11 @@ class EspecieController extends Controller
      * @param  \App\Especie  $especie
      * @return \Illuminate\Http\Response
      */
-    public function show(Especie $especie)
+    public function show($id)
     {
         //
+        // $especie = Especie::find($id);
+        // return view('especies.show', compact('especies'));
     }
 
     /**
@@ -55,9 +71,11 @@ class EspecieController extends Controller
      * @param  \App\Especie  $especie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Especie $especie)
+    public function edit($id)
     {
         //
+        $especie = Especie::find($id);
+        return view('especies.edit', compact('especie'));
     }
 
     /**
@@ -67,9 +85,14 @@ class EspecieController extends Controller
      * @param  \App\Especie  $especie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Especie $especie)
+    public function update(Request $request, $id)
     {
         //
+        $especie = Especie::find($id);
+        $especie->nome_cientifico = $request->nome_cientifico;
+        $especie->nome_popular = $request->nome_popular;
+        $especie->save();
+        return redirect(to: 'especies');
     }
 
     /**
@@ -78,8 +101,11 @@ class EspecieController extends Controller
      * @param  \App\Especie  $especie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Especie $especie)
+    public function destroy($id)
     {
         //
+        $especie = Especie::find($id);
+        $especie->delete();
+        return redirect(to: 'especies');
     }
 }

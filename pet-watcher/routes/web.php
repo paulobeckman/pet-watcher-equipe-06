@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+// login
+
+Auth::routes();
+
+
+// cadastro de especies
+
+Route::get('especies', 'EspecieController@index');
+Route::get('especies/create', 'EspecieController@create');
+Route::get('especies/{id}', 'EspecieController@show');
+Route::get('especies/edit/{id}', 'EspecieController@edit');
+Route::post('especies/store', 'EspecieController@store');
+Route::put('especies/{id}', 'EspecieController@update');
+Route::delete('especies/delete/{id}', 'EspecieController@destroy');
