@@ -19,9 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Route::get('password/reset', 'Auth\ResetPasswordController@');
+
 
 // cadastro de especies
 
+// Route::resource('especies' , 'EspecieController');
 Route::get('especies', 'EspecieController@index');
 Route::get('especies/create', 'EspecieController@create');
 Route::get('especies/{id}', 'EspecieController@show');
