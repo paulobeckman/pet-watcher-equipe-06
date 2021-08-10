@@ -12,7 +12,7 @@
         @endif
 
         @if(auth()->check())
-            {{method_field('post')}}
+            {{method_field('get')}}
             <a href="{{ route('logout') }} "> logout</a>
         @endif
 
