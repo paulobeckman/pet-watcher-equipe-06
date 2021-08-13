@@ -3,13 +3,13 @@
 
 
 <div>
-    <form action="{{route('password.uptade')}}" method="post">
+    <form action="{{action('UserController@update', Auth::user())}}" method="post">
         @csrf
-        <input type="hidden" name="token" value="{{$token}}">
 
-        <input id="email" type="email" name="email" >
-        <input id="password" type="password" name="password">
-        <input id="password-confirm" type="password" name="password_confirmation">
+        <input type="password" name="password" id="password" placeholder="Nova Senha">
+
+        <input type="submit" value="acao">
+
     </form>
 
 </div>
