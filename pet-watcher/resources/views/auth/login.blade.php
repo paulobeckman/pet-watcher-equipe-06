@@ -4,12 +4,11 @@
 
 
 
-<form action=" {{route('login')}} "method="post"  >
+<form action="{{ action('Auth\LoginController@login') }}" method="POST">
     @csrf
-    <input  type="email" name="email" id="email" placeholder="login">
-    <input  type="password" name="password" id="password" placeholder="senha">
-
-    <input type="submit" value="acao">
+    <p><input type="email" name="email" placeholder="Email"></p>
+    <p><input type="password" name="password" placeholder="Senha"></p>
+    <p><input type="submit" value="Login"></p>
 </form>
 
 @stop
