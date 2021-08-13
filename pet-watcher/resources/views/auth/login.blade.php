@@ -6,9 +6,9 @@
     <main>
         <nav class = "navbar">Pet Watcher</nav>
 
-<form action=" {{route('login')}} "method="post"  >
+<form action="{{ action('Auth\LoginController@login') }}" method="POST">
     @csrf
-    
+
     <div class="input-block">
         <input  type="email" name="email" id="email" placeholder="login">
     </div>
@@ -18,6 +18,7 @@
     </div>
 
     <input type="submit" class= "primary-button" value="Entrar">
+
 </form>
     </main>
 </div>

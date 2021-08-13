@@ -16,14 +16,18 @@ Route::get('/', function () {
 });
 
 // login
+// Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+// login
 
-Auth::routes();
-
-// Route::get('password/reset', 'Auth\ResetPasswordController@');
-
+// Troca Senha
+Route::get('reset' , 'UserController@index')->name('reset');
+Route::post('reset/password/{user}', 'UserController@update');
+// Troca Senha
 
 // cadastro de especies
-
 // Route::resource('especies' , 'EspecieController');
 Route::get('especies', 'EspecieController@index');
 Route::get('especies/create', 'EspecieController@create');
