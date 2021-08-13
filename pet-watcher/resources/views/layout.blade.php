@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    <link href ="{{url('assets/login.css')}}" rel = "stylesheet">
+    <link href ="{{url('assets/create-especie.css')}}" rel = "stylesheet">
 </head>
 <body>
 
