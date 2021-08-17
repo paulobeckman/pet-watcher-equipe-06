@@ -22,9 +22,10 @@ class LicencaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id = $request->id;
+        return view('licenca.create', compact('id'));
     }
 
     /**
@@ -35,7 +36,13 @@ class LicencaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $licenca = new Licenca();
+        $id = $request->id;
+        $licenca->data_licenciamento = $request->data_licenciamento;
+        $licenca->data_vencimento = $request->data_vencimento;
+        $licenca->id_credenciada = $id;
+        $licenca->save();
+        return redirect('licenca');
     }
 
     /**
@@ -72,6 +79,14 @@ class LicencaController extends Controller
         //
     }
 
+    public function revogar(Request $request)
+    {
+        $id = $request->idlicenca;
+        $licenca = Licenca::find($id);
+        $licenca->data_revogacao = now();
+        $licenca->save();
+        return redirect('credenciada');
+    }
     /**
      * Remove the specified resource from storage.
      *
