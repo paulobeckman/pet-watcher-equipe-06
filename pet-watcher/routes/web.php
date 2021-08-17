@@ -45,3 +45,13 @@ Route::get('credenciada/reset/password','CredenciadaController@FormRestPassword'
 Route::post('credenciada/reset/password/{user}','CredenciadaController@UpdatePassword')->name('credenciada.UpdatePassword');
 Route::resource('credenciada' , 'CredenciadaController')->parameters(['credenciada'=>'id']);
 
+
+Route::get('credenciada/{id}/licenca/','LicencaController@create')->name('licenca.create');
+Route::post('credenciada/{id}/licenca/','LicencaController@store')->name('licenca.store');
+Route::get('credenciada/{id}/licenca/{idlicenca}','LicencaController@revogar')->name('licenca.revogar');
+
+
+Route::get('credenciada/{id}/empregado/','EmpregadoController@create')->name('empregado.create');
+
+Route::resource('empregado' , 'EmpregadoController');
+Route::resource('licenca' , 'LicencaController');
