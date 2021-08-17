@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Credenciada;
+use App\Licenca;
+use App\Empregado;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,8 +18,9 @@ class CredenciadaController extends Controller
     public function index()
     {
         //
-        $credenciada = Credenciada::all();
-        return view('credenciada.index', compact('credenciada'));
+        $credenciadas = Credenciada::all();
+
+        return view('credenciada.index', compact('credenciadas'));
     }
 
     /**
@@ -47,15 +50,8 @@ class CredenciadaController extends Controller
         $credenciada->telefone = $request->telefone;
         $credenciada->email = $request->email;
         $credenciada->endereco = $request->endereco;
-        $credenciada->habilitada = true;
         $credenciada->save();
-
-        $credenciada = new User();
-        $credenciada->name = $request->razao_social;
-        $credenciada->email = $request->cnpj;
-        $credenciada->password= rand(6,9);
-        $credenciada->save();
-        return redirect(to:'credenciada');
+        return redirect('credenciada');
     }
 
     /**
@@ -68,7 +64,9 @@ class CredenciadaController extends Controller
     {
         //
         $credenciada = Credenciada::find($id);
-        return view('credenciada.show', compact('credenciada'));
+        $licencas = Licenca::all();
+        $empregados = Empregado::all();
+        return view('credenciada.show', compact('credenciada', 'licencas', 'empregados'));
     }
 
     /**
@@ -102,7 +100,7 @@ class CredenciadaController extends Controller
         $credenciada->email = $request->email;
         $credenciada->endereco = $request->endereco;
         $credenciada->save();
-        return redirect(to:'credenciada');
+        return redirect('credenciada');
 
     }
 
@@ -122,7 +120,7 @@ class CredenciadaController extends Controller
         $credenciada = Credenciada::find($id);
         $credenciada->habilitada = $request->habilitada;
         $credenciada->save();
-        return redirect(to:'credenciada');
+        return redirect('credenciada');
     }
 
     public function FormRestPassword(){
@@ -132,7 +130,7 @@ class CredenciadaController extends Controller
     public function UpdatePassword(Request $request,$user){
         $credenciada = User::find($user);
         $credenciada->password = $request->password;
-        return redirect(to:'credenciada');
+        return redirect('credenciada');
     }
 
 
