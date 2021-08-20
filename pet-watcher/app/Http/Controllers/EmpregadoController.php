@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Empregado;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Proprietario;
+use App\User;
 use Illuminate\Http\Request;
 
 class EmpregadoController extends Controller
@@ -15,6 +18,8 @@ class EmpregadoController extends Controller
     public function index()
     {
         //
+        $proprietarios = Proprietario::all();
+        return view('empregado.index', compact('proprietarios'));
     }
 
     /**
@@ -22,9 +27,10 @@ class EmpregadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('empregado.create');
+        $id = $request->id;
+        return view('empregado.create', compact('id'));
     }
 
     /**
@@ -36,6 +42,29 @@ class EmpregadoController extends Controller
     public function store(Request $request)
     {
         //
+        $empregadoCadastro = new User();
+        $empregado = new Empregado();
+
+        $empregadoCadastro->name = $request->nome_completo;
+        $empregadoCadastro->email = $request->cpf;
+        $empregadoCadastro->password= bcrypt(substr($request->cpf,0,6));
+        $empregadoCadastro->tipo_conta = $request->tipo_conta;
+        $empregadoCadastro->save();
+
+        $id_credenciada = $request->id;
+        $empregado->nome_completo = $request->nome_completo;
+        $empregado->cpf = $request->cpf;
+        $empregado->telefone = $request->telefone;
+        $empregado->endereco = $request->endereco;
+        $empregado->id_credenciada =$id_credenciada;
+        $empregado->id_user= $empregadoCadastro->id;
+        $empregado->save();
+
+        $login = $request->cpf;
+        $password = substr($request->cpf,0,6);
+
+
+        return view('sucesso-cadastro', compact('login','password'));
     }
 
     /**
