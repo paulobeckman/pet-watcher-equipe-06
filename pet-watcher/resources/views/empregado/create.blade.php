@@ -3,24 +3,20 @@
 @section('content')
 <div id = "page-create-especie">
 </div>
-    <form action="{{route('empregado.store')}}" method="post">
+    <form action="{{route('empregado.store', ['id' => $id])}}" method="post">
         @csrf
-        <legend>Cadastrar Credenciada</legend>
+        <legend>Cadastrar Empregado</legend>
         <br>
 
         <div class="input-block">
-            <legend>cnpj</legend>
-            <input type="text" name="cnpj" id="cnpj">
+            <legend>nome completo</legend>
+            <input type="text" name="nome_completo" id="nome_completo">
         </div>
 
-        <div class="input-block">
-            <legend>inscricao estadual</legend>
-            <input type="text" name="inscricao_estadual" id="inscricao_estadual">
-        </div>
 
         <div class="input-block">
-            <legend>razao social</legend>
-            <input type="text" name="razao_social" id="razao_social">
+            <legend>CPF</legend>
+            <input type="text" name="cpf" id="cpf">
         </div>
 
         <div class="input-block">
@@ -29,14 +25,11 @@
         </div>
 
         <div class="input-block">
-            <legend>email</legend>
-            <input type="text" name="email" id="email">
-        </div>
-
-        <div class="input-block">
             <legend>endereco</legend>
             <input type="text" name="endereco" id="endereco">
         </div>
+
+        <input type="hidden" name="tipo_conta" id="tipo_conta" value="2">
 
         <input type="submit" class = "primary-button" value="Cadastrar">
     </form>
