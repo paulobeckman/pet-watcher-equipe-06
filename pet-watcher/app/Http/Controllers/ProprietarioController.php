@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Proprietario;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProprietarioController extends Controller
@@ -25,6 +26,7 @@ class ProprietarioController extends Controller
     public function create()
     {
         //
+        return view('proprietario.create');
     }
 
     /**
@@ -36,6 +38,19 @@ class ProprietarioController extends Controller
     public function store(Request $request)
     {
         //
+        $userProprietario = new User();
+        $proprietario = new Proprietario();
+
+        $proprietario->tipo_pessoa = $request->tipo_pessoa;
+        $proprietario->cpf_cnpj = $request->cpf_cnpj;
+        $proprietario->nome_completo = $request->nome_completo;
+        $proprietario->telefone = $request->telefone;
+        $proprietario->email = $request->email;
+        $proprietario->endereco = $request->endereco;
+        $proprietario->save();
+
+        return redirect('empregado');
+
     }
 
     /**
@@ -44,9 +59,11 @@ class ProprietarioController extends Controller
      * @param  \App\Proprietario  $proprietario
      * @return \Illuminate\Http\Response
      */
-    public function show(Proprietario $proprietario)
+    public function show($id)
     {
         //
+        $proprietario = Proprietario::find($id);
+        return view('proprietario.show', compact('proprietario'));
     }
 
     /**
@@ -55,9 +72,11 @@ class ProprietarioController extends Controller
      * @param  \App\Proprietario  $proprietario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proprietario $proprietario)
+    public function edit($id)
     {
         //
+        $proprietario = Proprietario::find($id);
+        return view('proprietario.edit', compact('proprietario'));
     }
 
     /**
@@ -67,9 +86,18 @@ class ProprietarioController extends Controller
      * @param  \App\Proprietario  $proprietario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proprietario $proprietario)
+    public function update(Request $request, $id)
     {
         //
+        $proprietario = Proprietari::find($id);
+        $proprietario->tipo_pessoa = $request->tipo_pessoa;
+        $proprietario->cpf_cnpj = $request->cpf_cnpj;
+        $proprietario->nome_completo = $request->nome_completo;
+        $proprietario->telefone = $request->telefone;
+        $proprietario->email = $request->email;
+        $proprietario->endereco = $request->endereco;
+        $proprietario->save();
+        return redirect(to:'empregado');
     }
 
     /**
@@ -78,8 +106,11 @@ class ProprietarioController extends Controller
      * @param  \App\Proprietario  $proprietario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proprietario $proprietario)
+    public function destroy($id)
     {
         //
+        $proprietario = Proprietario::find($id);
+        $proprietario->delete();
+        return redirect(to: 'empregado');
     }
 }
