@@ -4,22 +4,22 @@
 
 <div id="page-login">
     <main>
-        <nav class = "navbar">Pet Watcher</nav>
+        <nav class="navbar">Pet Watcher</nav>
 
-<form action="{{ action('Auth\LoginController@login') }}" method="POST">
-    @csrf
+        <form action="{{ action('Auth\LoginController@login') }}" method="POST">
+            @csrf
 
-    <div class="input-block">
-        <input  type="email" name="email" id="email" placeholder="login">
-    </div>
-    
-    <div class="input-block">
-    <input  type="password" name="password" id="password" placeholder="senha">
-    </div>
+            <div class="input-block">
+                <input type="text" name="email" id="email" placeholder="login">
+            </div>
 
-    <input type="submit" class= "primary-button" value="Entrar">
+            <div class="input-block">
+                <input type="password" name="password" id="password" placeholder="senha">
+            </div>
 
-</form>
+            <input type="submit" class="primary-button" value="Entrar">
+
+        </form>
     </main>
 </div>
 
