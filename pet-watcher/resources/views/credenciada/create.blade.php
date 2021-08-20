@@ -50,6 +50,8 @@
             <input type="text" name="endereco" id="endereco">
         </div>
 
+        <input type="hidden" name="tipo_conta" id="tipo_conta" value="1">
+
         <input type="submit" class = "primary-button" value="Cadastrar">
     </form>
 @stop
