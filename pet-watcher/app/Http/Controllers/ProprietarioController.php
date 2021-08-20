@@ -89,7 +89,7 @@ class ProprietarioController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $proprietario = Proprietari::find($id);
+        $proprietario = Proprietario::find($id);
         $proprietario->tipo_pessoa = $request->tipo_pessoa;
         $proprietario->cpf_cnpj = $request->cpf_cnpj;
         $proprietario->nome_completo = $request->nome_completo;
