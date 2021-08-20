@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     <link href="{{url('assets/login.css')}}" rel="stylesheet">
     <link href="{{url('assets/create-especie.css')}}" rel="stylesheet">
+    <link href="{{url('assets/tabela.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -18,19 +19,49 @@
         @endif
 
         @if(auth()->check())
-        {{method_field('get')}}
-        <div >
-            <a href="{{ route('logout') }} "> logout</a>
+        <a href="{{ route('logout') }} "> logout</a>
+        @endif
+
+    </div>
+
+    @if(isset(Auth::user()->name))
+    <p>
+        Bem vindo: {{Auth::user()->name}}
+    </p>
+    @endif
+
+
+    @if(isset(Auth::user()->tipo_conta))
+    @if(Auth::user()->tipo_conta == 2)
+    <div>
+        <div>
+            <a href="{{ route('empregado.index')}}">gestão de Proprietarios</a>
+        </div>
+    </div>
+    @endif
+    @endif
+
+
+
+    @if(isset(Auth::user()->tipo_conta))
+    @if(Auth::user()->tipo_conta == 0)
+
+    <div>
+
+        <div>
             <a href="{{ route('reset')}}"> troca senha</a>
             <a href="{{ route('credenciada.index')}}">gestão de credenciadas</a>
         </div>
 
-        @endif
-
-        <a href="#"> cadastro</a>
     </div>
+    @endif
+    @endif
+
+
 
     @yield('content')
+
+
 </body>
 
 </html>
