@@ -44,6 +44,7 @@ class CredenciadaController extends Controller
     {
         //
         $credenciada = new Credenciada();
+        $userCredenciada = new User();
         $credenciada->cnpj = $request->cnpj;
         $credenciada->inscricao_estadual = $request->inscricao_estadual;
         $credenciada->razao_social = $request->razao_social;
@@ -51,7 +52,15 @@ class CredenciadaController extends Controller
         $credenciada->email = $request->email;
         $credenciada->endereco = $request->endereco;
         $credenciada->save();
+
+        $userCredenciada->name = $request->razao_social;
+        $userCredenciada->email =$request->cnpj;
+        $userCredenciada->password = bcrypt(substr($request->cnpj,0,-6));
+        $userCredenciada->tipo_conta = $request->tipo_conta;
+        $userCredenciada->save();
+
         return redirect('credenciada');
+
     }
 
     /**
