@@ -1,7 +1,7 @@
 @extends('layout')
 
-@section('content')
+@section('titulo', 'Home')
 
-    <div>teste</div>
+@section('content')
 
 @stop

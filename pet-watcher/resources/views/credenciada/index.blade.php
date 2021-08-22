@@ -22,12 +22,9 @@
             <td><a href="{{route('credenciada.showFormDisable',$credenciada->id)}}">desabilitar</a></td>
         </tr>
 
-
-
-
     </tbody>
     @endforeach
-
+    <br>
     <a href="{{route('credenciada.create')}}"> Cadastra nova Credenciada</a>
 
 </table>
