@@ -21,6 +21,7 @@
             <button><a href=" {{route('credenciada.edit',$credenciada->id)}}">editar</a></button>
             <button><a href=" {{route('empregado.create',['id' => $credenciada->id])}}">cadastrar funcionarios</a></button>
             <button><a href=" {{route('licenca.create',['id' => $credenciada->id])}}">cadastrar licença para credenciada</a></button>
+            <button><a href=" {{route('animal.index',['id' => $credenciada->id])}}">Gerenciar animais</a></button>
             <button><a href=" {{route ('proprietario.index',['id'=>$credenciada->id])}}">Gerenciamento de proprietario de animais</a></button>
 
         </tr>
@@ -40,9 +41,11 @@
 
         </tr>
         @endforeach
+        <tr>Funcionários</tr>
+
         @foreach($empregados as $empregado)
         <tr>
-            <td> {{$empregado->nome}} </td>
+            <td> {{$empregado->nome_completo}} </td>
         </tr>
         @endforeach
     </tbody>

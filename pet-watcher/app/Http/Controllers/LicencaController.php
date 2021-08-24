@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Licenca;
 use Illuminate\Http\Request;
 
+
 class LicencaController extends Controller
 {
     /**
@@ -42,7 +43,7 @@ class LicencaController extends Controller
         $licenca->data_vencimento = $request->data_vencimento;
         $licenca->id_credenciada = $id;
         $licenca->save();
-        return redirect('licenca');
+        return redirect(route('credenciada.show', ['id' => $id]));
     }
 
     /**
@@ -85,7 +86,7 @@ class LicencaController extends Controller
         $licenca = Licenca::find($id);
         $licenca->data_revogacao = now();
         $licenca->save();
-        return redirect('credenciada');
+        return back();
     }
     /**
      * Remove the specified resource from storage.

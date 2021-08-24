@@ -14,7 +14,9 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+        $animais = Animal::all();
+
+        return view('animal.index', compact('animais'));
     }
 
     /**
@@ -22,9 +24,10 @@ class AnimalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id = $request->id;
+        return view('animal.create', compact('id'));
     }
 
     /**
@@ -35,7 +38,21 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $animal = new Animal();
+        $id = $request->id;
+        $animal->nome = $request->nome;
+        $animal->tipo_aquisicao = $request->tipo_aquisicao;
+        $animal->microchip = $request->microchip;
+        $animal->porte = $request->porte;
+        $animal->data_nascimento = $request->data_nascimento;
+        $animal->sexo = $request->sexo;
+
+        $animal->data_cadastro = now();
+        $animal->ativo = true;
+        $animal->id_credenciada_responsavel->$id;
+        $animal->id_proprietatrio->$id;
+        $animal->save();
+        return redirect('animal');
     }
 
     /**

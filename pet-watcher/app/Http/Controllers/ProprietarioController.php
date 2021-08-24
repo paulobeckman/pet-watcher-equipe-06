@@ -106,7 +106,7 @@ class ProprietarioController extends Controller
         $proprietario->email = $request->email;
         $proprietario->endereco = $request->endereco;
         $proprietario->save();
-        return redirect(to:'empregado');
+        return redirect('proprietario');
     }
 
     /**
@@ -120,6 +120,6 @@ class ProprietarioController extends Controller
         //
         $proprietario = Proprietario::find($id);
         $proprietario->delete();
-        return redirect(to: 'empregado');
+        return redirect('proprietario');
     }
 }
