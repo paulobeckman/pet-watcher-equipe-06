@@ -60,4 +60,8 @@ Route::get('credenciada/{id}/empregado/','EmpregadoController@create')->name('em
 Route::resource('empregado' , 'EmpregadoController');
 Route::resource('licenca' , 'LicencaController');
 Route::resource('animal' , 'AnimalController');
+Route::resource('pedigree' , 'PedigreeController');
+
 Route::resource('proprietario','ProprietarioController')->parameters(['proprietario'=>'id']);
+Route::get('animal/{id}/desativar/','AnimalController@toDesative')->name('animal.desative');
+Route::post('animal/{id}/desativar/','AnimalController@desative')->name('animal.desative');
