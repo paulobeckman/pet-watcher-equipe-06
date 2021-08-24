@@ -3,7 +3,7 @@
 @section('content')
 <div id = "page-create-especie">
 </div>
-    <form action="{{route('animal.store', ['id' => $id])}}" method="post">
+    <form action="{{route('animal.store', ['id_proprietario' => $id_proprietario])}}" method="post">
         @csrf
         <legend>Cadastrar Animal</legend>
         <br>
@@ -15,12 +15,12 @@
 
         <div class="input-block">
             <legend>Tipo de aquisição</legend>
-            <input type="text" name="tipo_aquisição" id="tipo_aquisição">
+            <input type="text" name="tipo_aquisicao" id="tipo_aquisicao">
         </div>
 
         <div class="input-block">
             <legend>Microchip</legend>
-            <input type="text" name="microchip" id="microchip">
+            <input type="text" name="codigo_microchip" id="codigo_microchip">
         </div>
 
         <div class="input-block">
@@ -37,6 +37,18 @@
             <legend>Sexo</legend>
             <input type="text" name="sexo" id="sexo">
         </div>
+
+        <div class="input-block">
+            <legend>Especie</legend>
+            <select name="especie" id="especie">
+            <option value="0">Selecione</option>
+            @foreach($especies as $especie)
+            <option value="{{ $especie->id }}">{{$especie->nome_popular}}</option>
+            @endforeach
+
+            </select>
+        </div>
+
 
         <input type="submit" class = "primary-button" value="Cadastrar">
     </form>

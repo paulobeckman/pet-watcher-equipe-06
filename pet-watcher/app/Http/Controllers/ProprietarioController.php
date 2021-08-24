@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Credenciada;
 use App\Proprietario;
-use App\User;
+use App\Animal;
 use Illuminate\Http\Request;
 
 class ProprietarioController extends Controller
@@ -71,8 +71,9 @@ class ProprietarioController extends Controller
     public function show($id)
     {
         //
+        $animais = Animal::all()->WHERE('id_proprietario', $id);
         $proprietario = Proprietario::find($id);
-        return view('proprietario.show', compact('proprietario'));
+        return view('proprietario.show', compact('proprietario', 'animais'));
     }
 
     /**

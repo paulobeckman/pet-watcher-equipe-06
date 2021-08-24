@@ -22,4 +22,8 @@
     <button><a href=" {{route('proprietario.create',['id' => $credenciada->id])}}">cadastrar novo proprietario de animal</a></button>
 
 </table>
+<a  href="{{ route('credenciada.show',['id' => $credenciada->id]) }}">
+                <i class="fa fa-arrow-circle-o-left"></i>
+                <span>Voltar</span>
+    </a>
 @stop

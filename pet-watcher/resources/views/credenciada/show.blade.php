@@ -48,11 +48,16 @@
         @foreach($empregados as $empregado)
         <tr>
             <td> {{$empregado->nome_completo}} </td>
+            <td> {{$empregado->cpf}} </td>
         </tr>
         @endforeach
     </tbody>
 
 </table>
+<a  href="{{ route('credenciada.index') }}">
+                <i class="fa fa-arrow-circle-o-left"></i>
+                <span>Voltar</span>
+    </a>
 @stop
 
 
