@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Credenciada;
 use App\Proprietario;
 use App\User;
 use Illuminate\Http\Request;
@@ -13,9 +14,15 @@ class ProprietarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+
+        $id = $request->id;
+        $proprietarios = Proprietario::all()->WHERE('id_credenciada', $id);
+        $credenciada = Credenciada::find($id);
+        return view('proprietario.index', compact('proprietarios', 'credenciada'));
+
     }
 
     /**
@@ -23,10 +30,12 @@ class ProprietarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
-        return view('proprietario.create');
+        $id = $request->id;
+        return view('proprietario.create', compact('id'));
+
     }
 
     /**
@@ -38,19 +47,19 @@ class ProprietarioController extends Controller
     public function store(Request $request)
     {
         //
-        $userProprietario = new User();
-        $proprietario = new Proprietario();
 
+        $proprietario = new Proprietario();
+        $id = $request->id;
         $proprietario->tipo_pessoa = $request->tipo_pessoa;
         $proprietario->cpf_cnpj = $request->cpf_cnpj;
         $proprietario->nome_completo = $request->nome_completo;
         $proprietario->telefone = $request->telefone;
+        $proprietario->id_credenciada = $id;
         $proprietario->email = $request->email;
         $proprietario->endereco = $request->endereco;
         $proprietario->save();
 
         return redirect('empregado');
-
     }
 
     /**
