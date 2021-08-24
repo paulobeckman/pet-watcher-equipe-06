@@ -15,13 +15,14 @@
         <th></th>
         <th></th>
         </tr>
-        
+
     </thead>
     @foreach($credenciadas as $credenciada)
 
     <tbody>
         <tr>
-        <td><a href=" {{route('credenciada.show',$credenciada->id)}} ">{{$credenciada->razao_social}}</a></td>            <td> {{$credenciada->endereco}} </td>
+        <td><a href=" {{route('credenciada.show',$credenciada->id)}} ">{{$credenciada->razao_social}}</a></td>
+        <td> {{$credenciada->endereco}} </td>
             <td> {{$credenciada->telefone}} </td>
             <td> {{$credenciada->email}} </td>
 

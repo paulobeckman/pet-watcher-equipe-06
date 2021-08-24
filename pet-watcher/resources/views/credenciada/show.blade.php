@@ -54,16 +54,22 @@
             <a class = "btn btn-primary" href=" {{route('credenciada.edit',$credenciada->id)}}">Editar {{$credenciada->razao_social}}</a>
             <a style = "margin: 1rem"class = "btn btn-secondary" href=" {{route('empregado.create',['id' => $credenciada->id])}}">Cadastrar funcionários</a>
             <a class = "btn btn-info" href=" {{route('licenca.create',['id' => $credenciada->id])}}">Cadastrar licença para {{$credenciada->razao_social}}</a><br><br>
-            <a class="btn btn-success" href=" {{route('animal.index',['id' => $credenciada->id])}}">Gerenciar animais</a>
+            <a class="btn btn-success" shref=" {{route('animal.index',['id' => $credenciada->id])}}">Gerenciar animais</a>
             <a class="btn btn-success" href=" {{route ('proprietario.index',['id'=>$credenciada->id])}}">Gerenciamento de proprietário de animais</a>
+            <td> {{$empregado->nome_completo}} </td>
+            <td> {{$empregado->cpf}} </td>
         </tr>
-
 
     </div>
   </div>
 
 
 
+</table>
+<a  href="{{ route('credenciada.index') }}">
+                <i class="fa fa-arrow-circle-o-left"></i>
+                <span>Voltar</span>
+    </a>
 @stop
 
 

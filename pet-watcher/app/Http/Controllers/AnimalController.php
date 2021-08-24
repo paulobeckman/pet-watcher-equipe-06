@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Animal;
+use App\Especie;
+use App\Proprietario;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -12,9 +14,10 @@ class AnimalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $animais = Animal::all();
+        $id = $request->id;
+        $animais = Animal::all()->WHERE('id_credenciada_responsavel', $id);
 
         return view('animal.index', compact('animais'));
     }
@@ -26,8 +29,9 @@ class AnimalController extends Controller
      */
     public function create(Request $request)
     {
-        $id = $request->id;
-        return view('animal.create', compact('id'));
+        $especies = Especie::all();
+        $id_proprietario = $request->id_proprietario;
+        return view('animal.create', compact('id_proprietario', 'especies'));
     }
 
     /**
@@ -38,19 +42,22 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
+
+        $id_proprietario = $request->id_proprietario;
         $animal = new Animal();
-        $id = $request->id;
+        $proprietario = Proprietario::find($id_proprietario);
         $animal->nome = $request->nome;
         $animal->tipo_aquisicao = $request->tipo_aquisicao;
-        $animal->microchip = $request->microchip;
+        $animal->codigo_microchip = $request->codigo_microchip;
         $animal->porte = $request->porte;
         $animal->data_nascimento = $request->data_nascimento;
         $animal->sexo = $request->sexo;
-
+        $animal->id_especie = $request->especie;
         $animal->data_cadastro = now();
         $animal->ativo = true;
-        $animal->id_credenciada_responsavel->$id;
-        $animal->id_proprietatrio->$id;
+        $animal->id_proprietario = $proprietario->id;
+        $animal->id_credenciada_responsavel = $proprietario->id_credenciada;
+
         $animal->save();
         return redirect('animal');
     }
@@ -61,9 +68,13 @@ class AnimalController extends Controller
      * @param  \App\Animal  $animal
      * @return \Illuminate\Http\Response
      */
-    public function show(Animal $animal)
+    public function show($id)
     {
-        //
+        $animal = Animal::find($id);
+        $proprietario = Proprietario::find($animal->id_proprietario);
+        $especie = Especie::find($animal->id_especie);
+
+        return view('animal.show', compact('animal', 'proprietario', 'especie'));
     }
 
     /**
