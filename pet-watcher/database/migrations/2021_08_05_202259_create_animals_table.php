@@ -21,7 +21,7 @@ class CreateAnimalsTable extends Migration
             $table->string('porte');
             $table->string('sexo');
             $table->boolean('ativo');
-            $table->string('motivo_inativacao');
+            $table->string('motivo_inativacao')->nullable();
             $table->TimeStamp('data_nascimento');
             $table->TimeStamp('data_cadastro');
 

@@ -19,5 +19,9 @@
         </div>
 
         <input type="submit" class = "primary-button" value="Cadastrar">
+        <a  href="{{ url()->previous() }}">
+    <i class="fa fa-arrow-circle-o-left"></i>
+    <span>Voltar</span>
+</a>
     </form>
 @stop

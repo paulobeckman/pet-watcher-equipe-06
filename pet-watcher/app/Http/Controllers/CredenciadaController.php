@@ -15,6 +15,12 @@ class CredenciadaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
@@ -73,8 +79,8 @@ class CredenciadaController extends Controller
     {
         //
         $credenciada = Credenciada::find($id);
-        $licencas = Licenca::all();
-        $empregados = Empregado::all();
+        $licencas = Licenca::all()->WHERE('id_credenciada', $id);
+        $empregados = Empregado::all()->WHERE('id_credenciada', $id);
         return view('credenciada.show', compact('credenciada', 'licencas', 'empregados'));
     }
 
