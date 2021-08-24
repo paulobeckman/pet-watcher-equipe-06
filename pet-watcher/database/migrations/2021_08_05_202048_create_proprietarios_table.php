@@ -21,6 +21,9 @@ class CreateProprietariosTable extends Migration
             $table->string('telefone');
             $table->string('email');
             $table->string('endereco');
+
+            $table->bigInteger('id_credenciada');
+            $table->foreign('id_credenciada')->references('id')->on('credenciadas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
