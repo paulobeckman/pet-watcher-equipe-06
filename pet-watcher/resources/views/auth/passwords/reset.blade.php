@@ -8,7 +8,7 @@
 
         <input type="password" name="password" id="password" placeholder="Nova Senha">
 
-        <input type="submit" value="acao">
+        <input type="submit" value="Trocar Senha">
 
     </form>
 

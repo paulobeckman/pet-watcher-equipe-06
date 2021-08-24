@@ -1,20 +1,10 @@
 @extends('layout')
 
+@section('titulo', 'Cadastrar Especie')
+
 @section('content')
-<div id = "page-create-especie">
-    <main>
-        <nav id = "menu">
-            <ul>
-                <li><a href = "#">Cadastro</a></li>
-                <li><a href = "#">Espécie</a></li>
-                <li><a href = "#">Consulta</a></li>
-                <li><a href = "#">Licença</a></li>
-                <li><a href = "#">Alterar Senha</a></li>
-                <li><a href = "#">Logout</a></li>
-            </ul>
-        </nav>
-    </main>
-</div>
+
+
     <form action="{{action('EspecieController@store')}}" method="post">
         @csrf
         <legend>Cadastrar Espécie</legend>
@@ -29,6 +19,6 @@
             <input type="text" name="nome_popular" id="nome_popular">
         </div>        
         
-        <input type="submit" class = "primary-button" value="Cadastrar">
+        <input  style = "background: #27df83; color: white; margin-top: .6rem" type="submit" class = "btn" value="Cadastrar">
     </form>
 @stop

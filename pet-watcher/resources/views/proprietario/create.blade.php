@@ -3,7 +3,9 @@
 @section('content')
 <div id="page-create-especie">
 </div>
+
 <form action="{{route('proprietario.store',['id'=>$id])}}" method="post">
+
     @csrf
     <legend>Cadastrar Licença</legend>
     <br>

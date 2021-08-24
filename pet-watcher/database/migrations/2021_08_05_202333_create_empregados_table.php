@@ -18,7 +18,6 @@ class CreateEmpregadosTable extends Migration
             $table->string('nome_completo');
             $table->string('cpf');
             $table->string('telefone');
-            $table->string('email');
             $table->string('endereco');
 
             $table->bigInteger('id_credenciada');

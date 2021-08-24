@@ -22,6 +22,7 @@
             <button><a href=" {{route('empregado.create',['id' => $credenciada->id])}}">cadastrar funcionarios</a></button>
             <button><a href=" {{route('licenca.create',['id' => $credenciada->id])}}">cadastrar licença para credenciada</a></button>
             <button><a href=" {{route ('proprietario.index',['id'=>$credenciada->id])}}">Gerenciamento de proprietario de animais</a></button>
+
         </tr>
         @foreach($licencas as $licenca)
         <tr>
