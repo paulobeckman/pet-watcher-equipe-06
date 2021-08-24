@@ -41,7 +41,7 @@
 
         </table>
         <br>
-        <h4>Funcionários</h4>
+        <h4>Funcionários de {{$credenciada->razao_social}}</h4>
 
         @foreach($empregados as $empregado)
                 <tr>

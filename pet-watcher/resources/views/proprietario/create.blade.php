@@ -1,9 +1,14 @@
 @extends('layout')
 
+@section('titulo', 'Cadastrar Proprietário')
 @section('content')
-<div id="page-create-especie">
-</div>
 
+
+<div class="card mt-5" style = "width: 34rem; margin:auto; border-radius:1rem" >
+  
+
+    <div class="card-body" >
+        
 <form action="{{route('proprietario.store',['id'=>$id])}}" method="post">
 
     @csrf
@@ -13,41 +18,47 @@
     <div class="input-block">
         <legend>Tipo Pessoa</legend>
         <select name="tipo_pessoa" id="tipo_pessoa">
-            <option value="0">juridica</option>
-            <option value="1">fisica</option>
+            <option value="0">Jurídica</option>
+            <option value="1">Física</option>
         </select>
-    </div>
+    </div><br> 
 
     <div class="input-block">
         <legend>CPF/CNPJ</legend>
-        <input type="text" name="cpf_cnpj" id="cpf_cnpj">
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="cpf_cnpj" id="cpf_cnpj">
     </div>
 
 
     <div class="input-block">
-        <legend>Nome completo</legend>
-        <input type="text" name="nome_completo" id="nome_completo">
+        <legend>Nome Completo</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="nome_completo" id="nome_completo">
     </div>
 
 
     <div class="input-block">
-        <legend>telefone</legend>
-        <input type="text" name="telefone" id="telefone">
+        <legend>Telefone</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="telefone" id="telefone">
     </div>
 
 
     <div class="input-block">
-        <legend>email</legend>
-        <input type="text" name="email" id="email">
+        <legend>Email</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="email" id="email">
     </div>
 
 
     <div class="input-block">
-        <legend>Endereco</legend>
-        <input type="text" name="endereco" id="endereco">
+        <legend>Endereço</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="endereco" id="endereco">
     </div>
 
 
-    <input type="submit" class="primary-button" value="Cadastrar">
+    <input style = "width: 100%; background: #3cdc8c; color: white; margin-top: 1.2rem; font-size:1.4rem" class = "btn" type="submit" class="primary-button" value="Cadastrar">
 </form>
+      
+    </div>
+    
+  </div>
+
+
 @stop
