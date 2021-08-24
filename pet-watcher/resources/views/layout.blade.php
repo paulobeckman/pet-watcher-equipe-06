@@ -45,19 +45,7 @@
          </li>
 
           
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-
+        
           @if(auth()->check())
           <li class="nav-item dropdown">
             <a style = "color: white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -107,10 +95,9 @@
     
     <div>
       @if(auth()->guest())
-      <a href=" {{route('login')}} "> login</a>
+      <a class="btn btn-primary"href=" {{route('login')}} "> Fazer login</a>
       @endif
-
-  </div>
+    </div>
   
 
 

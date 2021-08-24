@@ -1,13 +1,21 @@
 @extends('layout')
 
+@section('titulo', 'Credenciadas')
+
 @section('content')
 
-<table>
+<table class = "table table-hover">
     <thead>
-        <tr>nome</tr>
-        <tr>endereço</tr>
-        <tr>telefone</tr>
-        <tr>email</tr>
+        <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+        
     </thead>
     @foreach($credenciadas as $credenciada)
 
@@ -17,15 +25,16 @@
             <td> {{$credenciada->telefone}} </td>
             <td> {{$credenciada->endereco}} </td>
 
-            <td><a href=" {{route('credenciada.edit',$credenciada->id)}}">editar</a></td>
-            <td><a href="{{route('credenciada.showRestForm')}}">trocaSenha</a></td>
-            <td><a href="{{route('credenciada.showFormDisable',$credenciada->id)}}">desabilitar</a></td>
+            <td><a class = "btn btn-outline-primary" href=" {{route('credenciada.edit',$credenciada->id)}}">Editar</a></td>
+            <td><a  class="btn btn-outline-secondary" href="{{route('credenciada.showRestForm')}}">Alterar Senha</a></td>
+            <td><a class = "btn btn-outline-danger" href="{{route('credenciada.showFormDisable',$credenciada->id)}}">Desabilitar</a></td>
         </tr>
 
     </tbody>
     @endforeach
-    <br>
-    <a href="{{route('credenciada.create')}}"> Cadastra nova Credenciada</a>
 
 </table>
+
+    <a style = "background: #27df83; color: white; margin-top: .6rem" class = "btn" href="{{route('credenciada.create')}}"> Nova Credenciada</a>
+
 @stop

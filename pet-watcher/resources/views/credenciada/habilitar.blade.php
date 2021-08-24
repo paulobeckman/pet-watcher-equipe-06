@@ -1,17 +1,34 @@
 @extends('layout')
 
+@section('titulo', 'Habilitar')
+
 @section('content')
 
+<div class="card mt-5" style = "width: 34rem; margin:auto; border-radius:1rem" >
+  
 
-<form action="{{route('credenciada.UptadeDisable',$credenciada->id )}}" method="post">
-    @csrf
-    {{method_field('put')}}
-    <h2>desabilitar</h2>
-    <input type="checkbox" name="habilitada" id="habilitada" value="0">
+    <div class="card-body" >
 
-    <h2>habilitar</h2>
-    <input type="checkbox" name="habilitada" id="habilitada" value="1">
+        <form action="{{route('credenciada.UptadeDisable',$credenciada->id )}}" method="post">
+            @csrf
+            {{method_field('put')}}
+            <h3>Desabilitar <input type="checkbox" name="habilitada" id="habilitada" value="0"> </h3>
 
-    <input type="submit" value="acao">
-</form>
+            <br><br>
+        
+            <h3>Habilitar <input type="checkbox" name="habilitada" id="habilitada" value="1"></h3>
+            
+        
+            <input class = "btn" style = "width: 100%; background: #3cdc8c; color: white; margin-top: 1.2rem; font-size:1.4rem" type="submit" value="Confirme">
+        </form>
+
+      
+    </div>
+    
+  </div>
+
+
+
+
+
 @stop

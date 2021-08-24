@@ -2,26 +2,29 @@
 
 @section('content')
 
-<table>
+<table class = "table">
     <thead>
-        <tr>nome</tr>
-        <tr>endereço</tr>
-        <tr>telefone</tr>
-        <tr>email</tr>
+        <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Email</th>
+        </tr>
     </thead>
 
     <tbody>
 
         <tr>
-            <td> {{$credenciada->razao_social}} </td>
+            <td>{{$credenciada->razao_social}} </td>
             <td> {{$credenciada->endereco}} </td>
             <td> {{$credenciada->telefone}} </td>
             <td> {{$credenciada->endereco}} </td>
 
-            <button><a href=" {{route('credenciada.edit',$credenciada->id)}}">editar</a></button>
-            <button><a href=" {{route('empregado.create',['id' => $credenciada->id])}}">cadastrar funcionarios</a></button>
-            <button><a href=" {{route('licenca.create',['id' => $credenciada->id])}}">cadastrar licença para credenciada</a></button>
+            <a class = "btn btn-primary" href=" {{route('credenciada.edit',$credenciada->id)}}">Editar {{$credenciada->razao_social}}</a>
+            <a style = "margin: 1rem"class = "btn btn-secondary" href=" {{route('empregado.create',['id' => $credenciada->id])}}">Cadastrar funcionários</a>
+            <a class = "btn btn-info" href=" {{route('licenca.create',['id' => $credenciada->id])}}">Cadastrar licença para {{$credenciada->razao_social}}</a>
         </tr>
+
         @foreach($licencas as $licenca)
         <tr>
             <td> {{$licenca->id}} </td>
