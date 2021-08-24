@@ -60,4 +60,6 @@ Route::get('credenciada/{id}/empregado/','EmpregadoController@create')->name('em
 Route::resource('empregado' , 'EmpregadoController');
 Route::resource('licenca' , 'LicencaController');
 Route::resource('animal' , 'AnimalController');
+Route::resource('pedigree' , 'PedigreeController');
+
 Route::resource('proprietario','ProprietarioController')->parameters(['proprietario'=>'id']);

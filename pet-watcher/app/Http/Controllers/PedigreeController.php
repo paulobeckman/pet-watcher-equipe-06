@@ -22,9 +22,10 @@ class PedigreeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id = $request->id;
+        return view('pedigree.create', compact('id'));
     }
 
     /**
@@ -35,7 +36,14 @@ class PedigreeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $id = $request->id;
+        $pedigree = new Pedigree();
+        $pedigree->codigo = $request->codigo;
+        $pedigree->origem = $request->origem;
+        $pedigree->id_animal = $id;
+        $pedigree->save();
+        return redirect(route('animal.show', ['animal' => $id]));
     }
 
     /**

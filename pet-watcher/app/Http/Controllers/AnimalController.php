@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Animal;
 use App\Especie;
+use App\Pedigree;
 use App\Proprietario;
 use Illuminate\Http\Request;
 
@@ -73,8 +74,8 @@ class AnimalController extends Controller
         $animal = Animal::find($id);
         $proprietario = Proprietario::find($animal->id_proprietario);
         $especie = Especie::find($animal->id_especie);
-
-        return view('animal.show', compact('animal', 'proprietario', 'especie'));
+        $pedigree = Pedigree::all()->WHERE('id_animal', $id)->first();
+        return view('animal.show', compact('animal', 'proprietario', 'especie', 'pedigree'));
     }
 
     /**

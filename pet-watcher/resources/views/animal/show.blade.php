@@ -12,11 +12,13 @@
         <h3>Especie: {{$especie->nome_popular}}</h3>
         <h3>Proprietario: {{$proprietario->nome_completo}}</h3>
 
-
-
-
-
-
+            @if($pedigree === null)
+            <a class = "btn btn-info" href=" {{route('pedigree.create',['id' => $animal->id])}}">Cadastrar Pedigree </a>
+            @endif
+            @if($pedigree != null)
+            <h3>Código do pedigree: {{$pedigree->codigo}}</h3>
+            <h3>Origem do pedigree: {{$pedigree->origem}}</h3>
+            @endif
 
     </div>
 @stop
