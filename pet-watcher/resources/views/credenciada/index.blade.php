@@ -23,7 +23,7 @@
         <tr>
         <td><a href=" {{route('credenciada.show',$credenciada->id)}} ">{{$credenciada->razao_social}}</a></td>            <td> {{$credenciada->endereco}} </td>
             <td> {{$credenciada->telefone}} </td>
-            <td> {{$credenciada->endereco}} </td>
+            <td> {{$credenciada->email}} </td>
 
             <td><a class = "btn btn-outline-primary" href=" {{route('credenciada.edit',$credenciada->id)}}">Editar</a></td>
             <td><a  class="btn btn-outline-secondary" href="{{route('credenciada.showRestForm')}}">Alterar Senha</a></td>
