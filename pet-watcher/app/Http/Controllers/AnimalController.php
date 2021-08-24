@@ -89,6 +89,21 @@ class AnimalController extends Controller
         //
     }
 
+    public function toDesative($id)
+    {
+        return view('animal.desativar', compact('id'));
+    }
+
+    public function desative(Request $request, $id)
+    {
+
+        $animal = Animal::find($id);
+        $animal->motivo_inativacao = $request->motivo_inativacao;
+        $animal->ativo = false;
+        $animal->save();
+        return redirect(route('animal.show', ['animal' => $id]));
+    }
+
     /**
      * Update the specified resource in storage.
      *
