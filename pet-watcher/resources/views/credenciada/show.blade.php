@@ -119,6 +119,14 @@
                         </div>              
                     </div>
 
+                    <h4 class = "mt-3 text-center">Espécies</h4>
+                    <hr>
+                    <div class = "row">
+                        <div class = "col-sm-6">
+                            <a class="btn btn-success mb-3" href=" {{action ('EspecieController@index')}}">Gerenciamento de especies</a>
+                        </div>              
+                    </div>
+
 
                         
                 </div>
@@ -130,6 +138,7 @@
         <span>Voltar</span>
     </a>
 </div>
+
 
 
 
