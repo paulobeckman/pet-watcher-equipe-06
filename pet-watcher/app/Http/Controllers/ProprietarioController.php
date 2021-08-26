@@ -14,6 +14,11 @@ class ProprietarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         //
@@ -59,7 +64,7 @@ class ProprietarioController extends Controller
         $proprietario->endereco = $request->endereco;
         $proprietario->save();
 
-        return redirect('empregado');
+        return redirect('proprietario');
     }
 
     /**

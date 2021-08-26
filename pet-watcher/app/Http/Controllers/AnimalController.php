@@ -15,12 +15,16 @@ class AnimalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         $id = $request->id;
-        $animais = Animal::all()->WHERE('id_credenciada_responsavel', $id);
 
-        return view('animal.index', compact('animais'));
+        $animais = Animal::all()->WHERE('id_credenciada_responsavel', $id);
+        return view('animal.index', compact('animais', 'id'));
     }
 
     /**

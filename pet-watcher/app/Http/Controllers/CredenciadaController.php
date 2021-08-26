@@ -144,7 +144,7 @@ class CredenciadaController extends Controller
 
     public function UpdatePassword(Request $request,$user){
         $credenciada = User::find($user);
-        $credenciada->password = $request->password;
+        $credenciada->password = bcrypt($request->password);
         return redirect('credenciada');
     }
 

@@ -15,11 +15,18 @@ class EmpregadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+    public function index(Request $request)
     {
         //
+        $id = $request->id_credenciada;
         $proprietarios = Proprietario::all();
-        return view('empregado.index', compact('proprietarios'));
+        $empregados = Empregado::all();
+        return view('empregado.index', compact('proprietarios', 'empregados', 'id'));
     }
 
     /**
@@ -73,9 +80,12 @@ class EmpregadoController extends Controller
      * @param  \App\Empregado  $empregado
      * @return \Illuminate\Http\Response
      */
-    public function show(Empregado $empregado)
+    public function show($id)
     {
         //
+        $empregado = Empregado::find($id);
+        return view ('empregado.show', compact('empregado'));
+
     }
 
     /**

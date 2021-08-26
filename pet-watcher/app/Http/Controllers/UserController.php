@@ -13,6 +13,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
@@ -73,7 +78,7 @@ class UserController extends Controller
     {
         //
         $User = User::find($user);
-        $User->password = $request->password;
+        $User->password = bcrypt($request->password);
         $User->save();
         return redirect(to:'/');
 
