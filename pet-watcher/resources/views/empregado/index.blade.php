@@ -1,18 +1,18 @@
 @extends('layout')
 
 @section('content')
-<table>
-    @foreach($proprietarios as $proprietario)
+    @foreach($empregados as $empregado)
 
     <tbody>
-        <tr>
-            <td><a href="{{route('proprietario.show', $proprietario->id)}}">{{$proprietario->nome_completo}}</a></td>
-            <td>{{$proprietario->telefone}}</td>
-            <td>{{$proprietario->endereco}}</td>
 
-            <td><a href="{{route('proprietario.edit', $proprietario->id)}}">editar</a> </td>
+        <tr>
+            <td><a href="{{route('empregado.show', $empregado->id)}}">{{$empregado->nome_completo}}</a></td>
+            <td>{{$empregado->telefone}}</td>
+            <td>{{$empregado->endereco}}</td>
+
+            <td><a href="{{route('empregado.edit', $empregado->id)}}">editar</a> </td>
             <td>
-                <form action="{{route('proprietario.destroy', $proprietario->id)}}" method="post">
+                <form action="{{route('empregado.destroy', $empregado->id)}}" method="post">
                     @csrf
                     {{method_field('delete')}}
 
@@ -23,7 +23,6 @@
     </tbody>
     @endforeach
 
-    <button><a href="{{route('proprietario.create')}}">Cadastrar Proprietario</a></button>
 
 
 </table>
