@@ -2,21 +2,18 @@
 
 @section('titulo', 'Gestão de Proprietário')
 @section('content')
-
-<h3>Lista de Proprietários</h3>
-
-<table class = "table table-hover">
-    @foreach($proprietarios as $proprietario)
+    @foreach($empregados as $empregado)
 
     <tbody>
-        <tr>
-            <td><a href="{{route('proprietario.show', $proprietario->id)}}">{{$proprietario->nome_completo}}</a></td>
-            <td>{{$proprietario->telefone}}</td>
-            <td>{{$proprietario->endereco}}</td>
 
-            <td><a class = "btn btn-info"href="{{route('proprietario.edit', $proprietario->id)}}">editar</a> </td>
+        <tr>
+            <td><a href="{{route('empregado.show', $empregado->id)}}">{{$empregado->nome_completo}}</a></td>
+            <td>{{$empregado->telefone}}</td>
+            <td>{{$empregado->endereco}}</td>
+
+            <td><a href="{{route('empregado.edit', $empregado->id)}}">editar</a> </td>
             <td>
-                <form action="{{route('proprietario.destroy', $proprietario->id)}}" method="post">
+                <form action="{{route('empregado.destroy', $empregado->id)}}" method="post">
                     @csrf
                     {{method_field('delete')}}
 
