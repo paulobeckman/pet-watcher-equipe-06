@@ -27,7 +27,6 @@
             <td> {{$credenciada->email}} </td>
 
             <td><a class = "btn btn-outline-primary" href=" {{route('credenciada.edit',$credenciada->id)}}">Editar</a></td>
-            <td><a  class="btn btn-outline-secondary" href="{{route('credenciada.showRestForm')}}">Alterar Senha</a></td>
             <td><a class = "btn btn-outline-danger" href="{{route('credenciada.showFormDisable',$credenciada->id)}}">Desabilitar</a></td>
         </tr>
 

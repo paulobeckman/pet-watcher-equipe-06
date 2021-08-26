@@ -1,7 +1,11 @@
 @extends('layout')
 
+@section('titulo', 'Gestão de Proprietário')
 @section('content')
-<table>
+
+<h3>Lista de Proprietários</h3>
+
+<table class = "table table-hover">
     @foreach($proprietarios as $proprietario)
 
     <tbody>
@@ -10,22 +14,25 @@
             <td>{{$proprietario->telefone}}</td>
             <td>{{$proprietario->endereco}}</td>
 
-            <td><a href="{{route('proprietario.edit', $proprietario->id)}}">editar</a> </td>
+            <td><a class = "btn btn-info"href="{{route('proprietario.edit', $proprietario->id)}}">editar</a> </td>
             <td>
                 <form action="{{route('proprietario.destroy', $proprietario->id)}}" method="post">
                     @csrf
                     {{method_field('delete')}}
 
-                    <input type="submit" value="deletar">
+                    <input class = "btn btn-danger" type="submit" value="deletar">
                 </form>
             </td>
         </tr>
     </tbody>
     @endforeach
 
-    <button><a href="{{route('proprietario.create')}}">Cadastrar Proprietario</a></button>
-
 
 </table>
+
+
+<a class= "btn btn-primary" href="{{route('proprietario.create')}}">Novo Proprietário</a>
+
+
 
 @stop

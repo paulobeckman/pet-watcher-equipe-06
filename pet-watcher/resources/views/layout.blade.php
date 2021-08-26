@@ -37,7 +37,7 @@
                 @if(Auth::user()->tipo_conta == 2)
                 <div>
                     <div>
-                        <a style = "color: white" href="{{ route('empregado.index')}}">Gestão de Proprietários</a>
+                        <a style = "color: white" class = "nav-link active" aria-current="page" href="{{ route('empregado.index')}}">Gestão de Proprietários</a>
                     </div>
                 </div>
                 @endif

@@ -11,7 +11,7 @@
 
 <div class = "container">
     <div class = "row d-flex justify-content-center">
-        <div class = "col-md-10 mt-0 pt-5">
+        <div class = "col-md-10 mt-0 mb-3 pt-5">
             <div class = "row z-depth-3">
                 <div class = "col-sm-4 bg-info rounded-left">
                     <div class = "card-block text-center text-white">
@@ -77,58 +77,5 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table class = "table table-hover ">
-    <thead>
-        <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Microchip</th>
-          <th scope="col">Data de Nascimeto</th>
-        </tr>
-      </thead>
-
-    @foreach($animais as $animal)
-    <tbody>
-
-        <tr>
-            <td><a href=" {{route('animal.show',$animal->id)}} ">{{$animal->nome}}</a></td>
-            <td>{{$animal->codigo_microchip}}</td>
-            <td>{{$animal->data_nascimento}}</td>
-
-            <td><a class = "btn btn-outline-primary" href="./animal/edit/{{$animal->id}}">Editar</a> </td>
-            <td>
-                <form action="{{action ('AnimalController@destroy', $animal->id)}}" method="post">
-                    @csrf
-                    {{method_field('delete')}}
-
-                    <input type="submit" class = "btn btn-outline-danger" value="Deletar">
-                </form>
-            </td>
-          </tr>
-
-    </tbody>
-    @endforeach
-
-</table>
 
 @stop
