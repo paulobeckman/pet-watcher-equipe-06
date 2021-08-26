@@ -36,6 +36,9 @@
 
 </table>
 
-    <a style = "background: #27df83; color: white; margin-top: .6rem" class = "btn" href="{{route('credenciada.create')}}"> Nova Credenciada</a>
+    <a style = "background: #27df83; color: white; margin-top: .6rem" class = "btn" href="{{route('credenciada.create')}}"> 
+        <i class="bi bi-plus-lg"></i>
+        Nova Credenciada
+    </a>
 
 @stop

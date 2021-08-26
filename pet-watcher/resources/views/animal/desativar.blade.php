@@ -16,21 +16,25 @@
             <br>
 
             <div class="input-block">
-                <legend>Motivo da desativação</legend>
+                <legend>Motivo da Desativação</legend>
                 <input type="text" name="motivo_inativacao" id="motivo_inativacao">
             </div>
 
-            <input class = "btn" style = "width: 100%; background: #3cdc8c; color: white; margin-top: 1.2rem; font-size:1.4rem"type="submit" class ="primary-button" value="desativar"><br>
-            <a  href="{{ url()->previous() }}">
-                <i class="fa fa-arrow-circle-o-left"></i>
-                <span>Voltar</span>
-            </a>
+            <input class = "btn" style = "width: 100%; background: #3cdc8c; color: white; margin-top: 1.2rem; font-size:1.4rem"type="submit" class ="primary-button" value="Desativar"><br>
+            
         </form>
 
 
+
     </div>
+    
 
   </div>
+
+  <a style = "width: 10%; color: white; " class = "btn btn-info mt-5" href="{{ url()->previous() }}">
+    <i class="bi bi-arrow-left"></i>
+    <span>Voltar</span>
+</a>
 
 
 

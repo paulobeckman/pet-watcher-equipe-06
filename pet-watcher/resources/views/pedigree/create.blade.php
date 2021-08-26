@@ -27,10 +27,6 @@
 
             <input class = "btn" style = "width: 100%; background: #3cdc8c; color: white; margin-top: 1.2rem; font-size:1.4rem"type="submit" class = "primary-button" value="Cadastrar">
 <br><br>
-            <a  href="{{ url()->previous() }}">
-                <i class="fa fa-arrow-circle-o-left"></i>
-                <span>Voltar</span>
-            </a>
         </form>
 
 
@@ -38,7 +34,10 @@
 
   </div>
 
-
+  <a  style = "width: 10%; color: white; " class = "btn btn-info mt-5" href="{{ url()->previous() }}">
+    <i class="bi bi-arrow-left"></i>
+    <span>Voltar</span>
+</a>
 
 
 @stop

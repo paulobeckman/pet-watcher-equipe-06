@@ -11,5 +11,4 @@
     ser feito nas unidades da Divisão de Vigilância Sanitária (DIVISA) e ainda em
     estabelecimentos credenciados por ela.</p>
 
-    <p>ppapapa</p>
 @stop

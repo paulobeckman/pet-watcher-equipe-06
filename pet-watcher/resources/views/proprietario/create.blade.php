@@ -1,13 +1,20 @@
 @extends('layout')
 
+@section('titulo', 'Cadastrar Proprietario')
 @section('content')
-<div id="page-create-especie">
-</div>
 
+
+
+
+<div class="card mt-5" style = "width: 34rem; margin:auto; border-radius:1rem" >
+  
+
+    <div class="card-body" >
+        
 <form action="{{route('proprietario.store',['id'=>$id])}}" method="post">
 
     @csrf
-    <legend>Cadastrar Licença</legend>
+    <legend>Cadastrar Proprietário</legend>
     <br>
 
     <div class="input-block">
@@ -19,35 +26,44 @@
     </div>
 
     <div class="input-block">
-        <legend>CPF/CNPJ</legend>
-        <input type="text" name="cpf_cnpj" id="cpf_cnpj">
+        <legend style = "margin-top: 1.2rem">CPF/CNPJ</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem;" type="text" name="cpf_cnpj" id="cpf_cnpj">
     </div>
 
 
     <div class="input-block">
         <legend>Nome completo</legend>
-        <input type="text" name="nome_completo" id="nome_completo">
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="nome_completo" id="nome_completo">
     </div>
 
 
     <div class="input-block">
-        <legend>telefone</legend>
-        <input type="text" name="telefone" id="telefone">
+        <legend>Telefone</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="telefone" id="telefone">
     </div>
 
 
     <div class="input-block">
-        <legend>email</legend>
-        <input type="text" name="email" id="email">
+        <legend>Email</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="email" id="email">
     </div>
 
 
     <div class="input-block">
-        <legend>Endereco</legend>
-        <input type="text" name="endereco" id="endereco">
+        <legend>Endereço</legend>
+        <input style = "width: 100%; height: 2.6rem; margin-bottom: 1.2rem" type="text" name="endereco" id="endereco">
     </div>
 
 
-    <input type="submit" class="primary-button" value="Cadastrar">
+    <input style = "background: #27df83; color: white; margin-top: .6rem; width: 100%;" type="submit" class="btn" value="Cadastrar">
 </form>
+    </div>
+    
+  </div>
+
+
+
+
+
+
 @stop
